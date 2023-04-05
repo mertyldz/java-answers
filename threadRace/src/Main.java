@@ -16,14 +16,15 @@ public class Main {
         List<Integer> allNumsPart3 = allNums.subList(5000, 7500);
         List<Integer> allNumsPart4 = allNums.subList(7500, 10000);
 
-        NumberSplitter nmsp1 = new NumberSplitter(allNumsPart1, evenNums, oddNums);
-        nmsp1.run();
-        NumberSplitter nmsp2 = new NumberSplitter(allNumsPart2, evenNums, oddNums);
-        nmsp2.run();
-        NumberSplitter nmsp3 = new NumberSplitter(allNumsPart3, evenNums, oddNums);
-        nmsp3.run();
-        NumberSplitter nmsp4 = new NumberSplitter(allNumsPart4, evenNums, oddNums);
-        nmsp4.run();
+        Thread nmsp1 = new Thread(new NumberSplitter(allNumsPart1, evenNums, oddNums));
+        nmsp1.start();
+        Thread nmsp2 = new Thread(new NumberSplitter(allNumsPart2, evenNums, oddNums));
+        nmsp2.start();
+        Thread nmsp3 = new Thread(new NumberSplitter(allNumsPart3, evenNums, oddNums));
+        nmsp3.start();
+        Thread nmsp4 = new Thread(new NumberSplitter(allNumsPart4, evenNums, oddNums));
+        nmsp3.start();
+        
 
         System.out.println(evenNums.size());
         System.out.println(oddNums.size());

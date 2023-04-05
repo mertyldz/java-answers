@@ -17,7 +17,7 @@ public class NumberSplitter implements Runnable {
         splitter(allNums, evenNums, oddNums);
     }
 
-    public void splitter(List<Integer> allN, List<Integer> evenN, List<Integer> oddN) {
+    public synchronized void splitter(List<Integer> allN, List<Integer> evenN, List<Integer> oddN) {
         for (Integer i : allNums) {
             if (i % 2 == 0) {
                 evenNums.add(i);
